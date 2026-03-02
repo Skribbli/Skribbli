@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Palworld Settings Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Palworld Settings Editor</h1>
+        <p class="subtitle">Load your <code>PalWorldSettings.ini</code>, tweak values, and export a new file.</p>
+      </div>
+      <div class="header-actions">
+        <label class="button secondary" for="fileInput">Load INI file</label>
+        <input id="fileInput" type="file" accept=".ini,.txt" />
+        <button id="downloadBtn" class="button">Download updated INI</button>
+      </div>
+    </header>
+
+    <main class="app-layout">
+      <section class="panel controls-panel">
+        <h2>Server Profile</h2>
+        <div id="serverProfile" class="profile-grid"></div>
+      </section>
+
+      <section class="panel settings-panel">
+        <div class="settings-header">
+          <h2>Gameplay Settings</h2>
+          <div class="search-wrap">
+            <label for="searchInput">Find setting</label>
+            <input id="searchInput" type="search" placeholder="Search by key or label..." />
+          </div>
+        </div>
+        <div id="settingsGrid" class="settings-grid"></div>
+      </section>
+
+      <section class="panel raw-panel">
+        <h2>Generated Output</h2>
+        <p>Copy this directly into your <code>PalWorldSettings.ini</code> or use the download button.</p>
+        <textarea id="outputArea" spellcheck="false"></textarea>
+      </section>
+    </main>
+
+    <template id="settingCardTemplate">
+      <article class="setting-card">
+        <div class="setting-meta">
+          <h3></h3>
+          <p></p>
+        </div>
+        <div class="setting-input"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
